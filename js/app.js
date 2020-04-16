@@ -36,24 +36,23 @@ class DispalyMovies{
 
 class LoadArray{
     moviesArray(movies_list, title=""){
-        document.querySelectorAll("#grid_view").remove;
         var ark = movies_list;
-        setTimeout(function(){
-            if (title != ""){
-           
-                var ark = movies_list.filter(res => {
-                    return res.title.includes(title)
-                })
-                
-            }
-    
-           
-            ark.map((res) => {
-                const movie_intializer = new Movie(res.crawled_at, res.description, res.title, res.url, res.poster, res.produced_by, res.directed_by);
-                const mv = new DispalyMovies();
-                mv.display(movie_intializer);
-            });
-        }, 2000)
+       
+        if (title != ""){
+        
+            var ark = movies_list.filter(res => {
+                return res.title.includes(title)
+            })
+            
+        }
+
+        console.log(ark);
+        ark.map((res) => {
+            const movie_intializer = new Movie(res.crawled_at, res.description, res.title, res.url, res.poster, res.produced_by, res.directed_by);
+            const mv = new DispalyMovies();
+            mv.display(movie_intializer);
+        });
+        
         
     }
 
